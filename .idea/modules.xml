@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/obsidian-solarpunk-theme.iml" filepath="$PROJECT_DIR$/.idea/obsidian-solarpunk-theme.iml" />
+      <module fileurl="file://$USER_HOME$/Vaults/Beyond Humanity/.obsidian/snippets/snippets.iml" filepath="$USER_HOME$/Vaults/Beyond Humanity/.obsidian/snippets/snippets.iml" />
     </modules>
   </component>
 </project>

@@ -1,14 +1,14 @@
 .theme-dark,
 .theme-light {
   /* Overwrite default theme colors */
-  --base03: rgb(0, 43, 54);
-  --base02: rgb(7, 54, 66);
-  --base01: rgb(88, 110, 117);
-  --base00: rgb(101, 123, 131);
+  --base03: rgb(0, 38, 40);
+  --base02: rgb(7, 59, 63);
+  --base01: rgb(86, 110, 112);
+  --base00: rgb(101, 127, 130);
   --base0: rgb(131, 148, 150);
   --base1: rgb(147, 161, 161);
-  --base2: rgb(238, 232, 213);
-  --base3: rgb(253, 246, 227);
+  --base2: rgb(255, 234, 173);
+  --base3: rgb(255, 247, 226);
   --color-yellow: rgb(181, 137, 0);
   --color-yellow-rgb: 181, 137, 0;
   --color-orange: rgb(203, 75, 22);
@@ -25,9 +25,12 @@
   --color-cyan-rgb: 42, 161, 152;
   --color-green: rgb(133, 153, 0);
   --color-green-rgb: 133, 153, 0;
-  --accent-h: 17.5690607735deg;
-  --accent-s: 80.4444444444%;
-  --accent-l: 44.1176470588%;
+  --accent-h: 45.4143646409deg;
+  --accent-s: 100%;
+  --accent-l: 35.4901960784%;
+  --beyhum-cyan: rgb(17, 142, 151);
+  --beyhum-cyan2: rgb(43, 152, 160);
+  --beyhum-yellow: rgb(255, 204, 66);
 }
 
 /*! @settings
@@ -47,22 +50,22 @@ settings:
     title: base03
     type: variable-color
     format: rgb
-    default: rgb(0 43 54)
+    default: rgb(0 38 40)
   - id: base02
     title: base02
     type: variable-color
     format: rgb
-    default: rgb(7 54 66)
+    default: rgb(7 59 63)
   - id: base01
     title: base01
     type: variable-color
     format: rgb
-    default: rgb(88 110 117)
+    default: rgb(86 110 112)
   - id: base00
     title: base00
     type: variable-color
     format: rgb
-    default: rgb(101 123 131)
+    default: rgb(101 127 130)
   - id: base0
     title: base0
     type: variable-color
@@ -77,12 +80,12 @@ settings:
     title: base2
     type: variable-color
     format: rgb
-    default: rgb(238 232 213)
+    default: rgb(255 234 173)
   - id: base3
     title: base3
     type: variable-color
     format: rgb
-    default: rgb(253 246 227)
+    default: rgb(255 247 226)
   - id: accents
     description: "NB This does not override Obsidian's built-in accent color (see Appearance > Accent color)"
     title: Accent Colors
@@ -170,10 +173,12 @@ settings:
   /* Background */
   --background-primary: var(--base03);
   --background-primary-alt: var(--base02);
+  /* Headings */
+  --text-title: var(--base2);
   /* Text */
-  --text-normal: var(--base0);
-  --text-muted: var(--base00);
-  --text-faint: var(--base01);
+  --text-normal: var(--base3);
+  --text-muted: var(--base0);
+  --text-faint: var(--base00);
   /* File explorer */
   --active-bg: var(--nav-item-background-active);
   /* Hashtags */
@@ -197,6 +202,8 @@ settings:
   /* Background */
   --background-primary: var(--base3);
   --background-primary-alt: var(--base2);
+  /* Headings */
+  --text-title: var(--beyhum-cyan);
   /* Text */
   --text-normal: var(--base00);
   --text-muted: var(--base0);
@@ -216,15 +223,34 @@ settings:
   --background-secondary-alt: var(--background-primary-alt);
   /* Text */
   --text-on-accent: var(--background-primary);
+  --text-selection: rgba(0, 116, 255, 0.8);
   /* Headings */
-  --text-title: var(--color-cyan);
   --heading-formatting: var(--text-title);
+  --inline-title-weight: 200;
   --h1-color: var(--text-title);
   --h2-color: var(--text-title);
   --h3-color: var(--text-title);
   --h4-color: var(--text-title);
   --h5-color: var(--text-title);
   --h6-color: var(--text-title);
+  --h1-size: 2.441em;
+  --h2-size: 1.953em;
+  --h3-size: 1.563em;
+  --h4-size: 1.25em;
+  --h5-size: 1em;
+  --h6-size: 1em;
+  --h1-variant: small-caps;
+  --h2-variant: small-caps;
+  --h3-variant: small-caps;
+  --h4-variant: normal;
+  --h5-variant: normal;
+  --h6-variant: normal;
+  --h1-weight: 900;
+  --h2-weight: 700;
+  --h3-weight: 600;
+  --h4-weight: 800;
+  --h5-weight: 700;
+  --h6-weight: 600;
   /* Links */
   --link-color: var(--color-blue);
   --link-color-hover: var(--link-color);
@@ -265,6 +291,19 @@ settings:
   --tag-color: var(--color-accent);
   /* Focus border */
   --background-modifier-border-focus: var(--interactive-accent);
+}
+
+.inline-title {
+  text-align: center;
+  font-variant: small-caps;
+}
+
+.cm-header {
+  font-variant: small-caps;
+}
+
+.HyperMD-header-3 {
+  border-block-end: 3px solid currentColor;
 }
 
 .cm-s-obsidian {
@@ -359,8 +398,17 @@ settings:
 }
 
 /* Highlight current line */
-.cm-active {
-  background: var(--active-bg);
+.cm-line {
+  position: relative;
+}
+
+.cm-active::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 0;
+  bottom: 0;
+  border-inline-start: 2px solid var(--collapse-icon-color);
 }
 .cm-active.cm-gutterElement {
   color: var(--color-accent);

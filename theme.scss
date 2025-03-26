@@ -3,6 +3,19 @@
 @use "_colors";
 @use "_variables";
 
+.inline-title {
+  text-align: center;
+  font-variant: small-caps;
+}
+
+.cm-header {
+    font-variant: small-caps;
+}
+
+.HyperMD-header-3 {
+    border-block-end: 3px solid currentColor;
+}
+
 .cm-s-obsidian {
 
   /* Checkboxes */
@@ -109,8 +122,20 @@
 }
 
 /* Highlight current line */
+.cm-line {
+  position: relative;
+}
+
 .cm-active {
-  background: var(--active-bg);
+  &::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 0;
+    bottom: 0;
+
+    border-inline-start: 2px solid var(--collapse-icon-color);
+  }
 
   &.cm-gutterElement {
     color: var(--color-accent);

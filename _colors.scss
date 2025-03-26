@@ -4,14 +4,14 @@
 @use "sass:map";
 
 $tones: (
-  "base03": 0 43 54,
-  "base02": 7 54 66,
-  "base01": 88 110 117,
-  "base00": 101 123 131,
+  "base03": 0 38 40,
+  "base02": 7 59 63,
+  "base01": 86 110 112,
+  "base00": 101 127 130,
   "base0": 131 148 150,
   "base1": 147 161 161,
-  "base2": 238 232 213,
-  "base3": 253 246 227
+  "base2": 255 234 173,
+  "base3": 255 247 226
 );
 
 $accents: (
@@ -25,7 +25,11 @@ $accents: (
   "green": 133 153 0
 );
 
-$accent: "orange";
+$accent: "yellow";
+
+$beyhum-cyan: rgb(17, 142, 151);
+$beyhum-cyan2: rgb(43, 152, 160); //Matches accents.cyan
+$beyhum-yellow: rgb(255, 204, 66);
 
 .theme-dark,
 .theme-light {
@@ -42,6 +46,10 @@ $accent: "orange";
   --accent-h: #{hue(rgb(map.get($accents, $accent)))};
   --accent-s: #{saturation(rgb(map.get($accents, $accent)))};
   --accent-l: #{lightness(rgb(map.get($accents, $accent)))};
+
+  --beyhum-cyan: #{$beyhum-cyan};
+  --beyhum-cyan2: #{$beyhum-cyan2};
+  --beyhum-yellow: #{$beyhum-yellow};
 }
 
 /*! @settings
