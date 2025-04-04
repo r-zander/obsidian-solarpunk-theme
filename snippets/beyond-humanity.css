@@ -1,0 +1,67 @@
+/* =================================================== */
+/* Plugin: Dataview
+/* =================================================== */
+
+.dataview.inline-field-key {
+    padding-inline-end: 0;
+
+    &::after {
+        content: ":";
+    }
+}
+
+/* Aspekte formatieren */
+.dataview.inline-field-key[data-dv-norm-key="aspect"] {
+    display: none;
+}
+
+.dataview.inline-field-value[data-dv-norm-key="aspect"] {
+    background-color: transparent;
+    font-variant: small-caps;
+    font-weight: 600;
+    font-family: inherit;
+    color: var(--beyhum-yellow);
+    padding-inline: 0;
+}
+
+.HyperMD-list-line > .dataview.inline-field:nth-child(3) > .dataview.inline-field-value[data-dv-norm-key="aspect"] {
+    color: inherit;
+}
+
+/* Date formatieren */
+.dataview.inline-field-key {
+    &[data-dv-norm-key="date"] {
+        display: none;
+    }
+}
+
+/* =================================================== */
+/* Plugin: RichFoot
+/* =================================================== */
+
+.rich-foot--backlinks::before,
+.rich-foot--outlinks::before,
+.rich-foot--links::before {
+    text-transform: capitalize;
+    filter: none;
+    font-size: inherit;
+    color: var(--text-muted);
+}
+
+.rich-foot--backlinks ul li a,
+.rich-foot--outlinks ul li a,
+.rich-foot--links ul li a {
+    text-transform: none;
+}
+
+.rich-foot--created-date,
+.rich-foot--modified-date {
+
+}
+
+.rich-foot--created-date::before,
+.rich-foot--modified-date::before {
+    text-transform: capitalize;
+    font-size: inherit;
+    color: var(--text-muted);
+}
