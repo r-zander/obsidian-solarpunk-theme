@@ -181,6 +181,7 @@ settings:
   --text-faint: var(--base00);
   /* File explorer */
   --active-bg: var(--nav-item-background-active);
+  --nav-collapse-icon-color: var(--text-normal);
   /* Hashtags */
   --tag-background: hsla(var(--interactive-accent-hsl), 0.2);
 }
@@ -440,6 +441,10 @@ settings:
 .workspace-leaf.mod-active .nav-folder.has-focus > .nav-folder-title,
 .workspace-leaf.mod-active .nav-file.has-focus > .nav-file-title {
   box-shadow: 0 0 0 2px var(--color-accent);
+}
+
+.tree-item-self .tree-item-icon {
+  opacity: 1;
 }
 
 /* Community theme and plugin browsers */
